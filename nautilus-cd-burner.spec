@@ -1,17 +1,20 @@
+# Conditional build
+%bcond_without	hal	# disable HAL support
+#
 Summary:	Extension for Nautilus to write CD
 Summary(pl):	Rozszerzenie Nautilusa do zapisu p³yt CD
 Name:		nautilus-cd-burner
-Version:	2.8.0
+Version:	2.8.1
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	1f34c9818c59076668f7702fda9f7bc3
+# Source0-md5:	3768dd01281343a9322ced3167102f05
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	gnome-vfs2-devel >= 2.7.92
-BuildRequires:	hal-devel >= 0.2.97
+%{?with_hal:BuildRequires:	hal-devel >= 0.2.92}
 BuildRequires:	intltool >= 0.22
 BuildRequires:	libglade2-devel >= 1:2.4.0
 BuildRequires:	nautilus-devel >= 2.8.0
@@ -19,7 +22,7 @@ Requires(post):	/sbin/ldconfig
 Requires(post): GConf2 >= 2.7.92
 Requires:	cdrtools
 Requires:	cdrtools-mkisofs
-Requires:	hal >= 0.2.97
+%{?with_hal:Requires:	hal >= 0.2.92}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -50,7 +53,7 @@ Pliki nag³ówkowe Nautilus-cd-burner.
 %{__autoconf}
 %configure \
 	--disable-schemas-install \
-	--enable-hal
+	--%{?with_hal:ena}%{!?with_hal:dis}able-hal
 
 %{__make}
 
