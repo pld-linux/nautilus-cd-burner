@@ -10,7 +10,6 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/0.4/%{name}-%{version}.t
 URL:		http://www.gnome.org/
 BuildRequires:	gnome-vfs2-devel >= 2.2.0
 BuildRequires:	nautilus-devel >= 2.2.0
-BuildRequires:	alsa-lib-devel >= 0.9.2
 Requires:	cdrtools
 Requires:	cdrtools-mkisofs
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
