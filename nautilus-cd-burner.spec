@@ -50,6 +50,7 @@ Pliki nag³ówkowe Nautilus-cd-burner.
 %setup -q
 
 %build
+cp -f /usr/share/automake/config.sub .
 %{__autoconf}
 %configure \
 	--disable-schemas-install \
