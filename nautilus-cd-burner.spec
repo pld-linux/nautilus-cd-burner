@@ -1,15 +1,16 @@
 Summary:	Extension for Nautilus to write CD
 Summary(pl):	Rozszerzenie Nautilusa do zapisu p³yt CD
 Name:		nautilus-cd-burner
-Version:	0.6.1
+Version:	0.6.5
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/0.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	fe4dfde318b0d5d0350907dd1e49557d
+# Source0-md5:	9757e303612940a0c2c7c44d13c0a46f
 URL:		http://www.gnome.org/
-BuildRequires:	gnome-vfs2-devel >= 2.4.0
-BuildRequires:	nautilus-devel >= 2.3.90
+BuildRequires:	gnome-vfs2-devel >= 2.5.7
+BuildRequires:	libglade2-devel >= 2.3.0
+BuildRequires:	nautilus-devel >= 2.5.7
 BuildRequires:	intltool
 Requires(post): GConf2 
 Requires:	cdrtools
@@ -29,15 +30,18 @@ plików na p³ycie CD.
 
 %build
 glib-gettextize --copy --force
-intltoolize --force
-%configure
+intltoolize --copy --force
+%configure \
+	--disable-schemas-install
+
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 
 %find_lang %{name}
 
@@ -51,11 +55,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS README ChangeLog
 %attr(755,root,root) %{_bindir}/nautilus-cd-burner
-%attr(755,root,root) %{_libdir}/nautilus-cd-burner-context-menu
 %attr(755,root,root) %{_libdir}/mapping-daemon
 %attr(755,root,root) %{_libdir}/gnome-vfs-2.0/modules/*.so
-%{_libdir}/bonobo/servers/*
+%attr(755,root,root) %{_libdir}/nautilus/extensions-1.0/lib*.so*
 %{_libdir}/gnome-vfs-2.0/modules/*.la
+%{_libdir}/nautilus/extensions-1.0/lib*.la
 %{_sysconfdir}/gnome-vfs-2.0/modules/*
 %{_sysconfdir}/gconf/schemas/ncb.schemas
 %{_datadir}/%{name}
