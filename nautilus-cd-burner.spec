@@ -14,7 +14,7 @@ BuildRequires:	gnome-vfs2-devel >= 2.7.92
 BuildRequires:	hal-devel >= 0.2.97
 BuildRequires:	intltool >= 0.22
 BuildRequires:	libglade2-devel >= 1:2.4.0
-BuildRequires:	nautilus-devel >= 2.7.92
+BuildRequires:	nautilus-devel >= 2.8.0
 Requires(post):	/sbin/ldconfig
 Requires(post): GConf2 >= 2.7.92
 Requires:	cdrtools
