@@ -1,12 +1,12 @@
-diff -aurN nautilus-cd-burner-2.7.2.orig/configure.in nautilus-cd-burner-2.7.2/configure.in
---- nautilus-cd-burner-2.7.2.orig/configure.in	2004-06-11 14:13:59.000000000 +0200
-+++ nautilus-cd-burner-2.7.2/configure.in	2004-06-11 23:10:46.795020544 +0200
-@@ -117,7 +117,7 @@
+diff -urN nautilus-cd-burner-2.7.6.orig/configure.in nautilus-cd-burner-2.7.6/configure.in
+--- nautilus-cd-burner-2.7.6.orig/configure.in	2004-08-17 18:42:38.174960104 +0200
++++ nautilus-cd-burner-2.7.6/configure.in	2004-08-17 18:42:54.160529928 +0200
+@@ -121,7 +121,7 @@
  AC_PATH_PROG(GCONFTOOL, gconftool-2)
  AM_GCONF_SOURCE_2
  
--ALL_LINGUAS="am ar az be bg bn ca cs cy da de el en_CA en_GB es et eu fa fi fr ga gu he hi hr hu id is it ja ko lt lv mn ms nl no pa pl pt pt_BR ro ru sk sl sq sr sr@Latn sv th tr uk vi zh_CN zh_TW"
-+ALL_LINGUAS="am ar az be bg bn ca cs cy da de el en_CA en_GB es et eu fa fi fr ga gu he hi hr hu id is it ja ko lt lv mn ms nb nl pa pl pt pt_BR ro ru sk sl sq sr sr@Latn sv th tr uk vi zh_CN zh_TW"
+-ALL_LINGUAS="am ar az be bg bn ca cs cy da de el en_CA en_GB es et eu fa fi fr ga gu he hi hr hu id is it ja ko lt lv mn ms nl no or pa pl pt pt_BR ro ru sk sl sq sr sr@Latn sv th tr uk vi zh_CN zh_TW"
++ALL_LINGUAS="am ar az be bg bn ca cs cy da de el en_CA en_GB es et eu fa fi fr ga gu he hi hr hu id is it ja ko lt lv mn ms nb nl or pa pl pt pt_BR ro ru sk sl sq sr sr@Latn sv th tr uk vi zh_CN zh_TW"
  AM_GLIB_GNU_GETTEXT
  
  dnl Turn on the additional warnings last, so -Werror doesn't affect other tests.
