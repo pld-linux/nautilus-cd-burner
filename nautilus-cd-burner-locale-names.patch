@@ -5,8 +5,8 @@ diff -urN nautilus-cd-burner-2.6.0.orig/configure.in nautilus-cd-burner-2.6.0/co
  AC_SUBST(GETTEXT_PACKAGE)
  AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [gettext package])
  
--ALL_LINGUAS="am ar az be bg bn ca cs cy da de el en_GB es et eu fa fi fr ga he hi hr hu id it ja ko lt lv mn ms nl no pa pl pt pt_BR ro ru sk sl sq sr sr@Latn sv th tr uk vi zh_CN zh_TW"
-+ALL_LINGUAS="am ar az be bg bn ca cs cy da de el en_GB es et eu fa fi fr ga he hi hr hu id it ja ko lt lv mn ms nb nl pa pl pt pt_BR ro ru sk sl sq sr sr@Latn sv th tr uk vi zh_CN zh_TW"
+-ALL_LINGUAS="am ar az be bg bn ca cs cy da de el en_CA en_GB es et eu fa fi fr ga gu he hi hr hu id it ja ko lt lv mn ms nl no pa pl pt pt_BR ro ru sk sl sq sr sr@Latn sv th tr uk vi zh_CN zh_TW"
++ALL_LINGUAS="am ar az be bg bn ca cs cy da de el en_CA en_GB es et eu fa fi fr ga gu he hi hr hu id it ja ko lt lv mn ms nb nl pa pl pt pt_BR ro ru sk sl sq sr sr@Latn sv th tr uk vi zh_CN zh_TW"
  	
  AM_GLIB_GNU_GETTEXT
  dnl Check for ngettext
