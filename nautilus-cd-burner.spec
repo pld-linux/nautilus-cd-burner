@@ -38,7 +38,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %find_lang %{name}
 
-%post                                                                               
+%post
 %gconf_schema_install
 
 %clean
