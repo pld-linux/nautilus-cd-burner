@@ -5,7 +5,7 @@ Summary:	Extension for Nautilus to write CD
 Summary(pl):	Rozszerzenie Nautilusa do zapisu p³yt CD
 Name:		nautilus-cd-burner
 Version:	2.8.3
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.8/%{name}-%{version}.tar.bz2
@@ -18,7 +18,6 @@ BuildRequires:	gnome-vfs2-devel >= 2.7.92
 BuildRequires:	intltool >= 0.22
 BuildRequires:	libglade2-devel >= 1:2.4.0
 BuildRequires:	nautilus-devel >= 2.8.0
-Requires(post):	/sbin/ldconfig
 Requires(post): GConf2 >= 2.7.92
 Requires:	cdrtools
 Requires:	cdrtools-mkisofs
@@ -37,7 +36,7 @@ plików na p³ycie CD.
 Summary:	Nautilus-cd-burner include files
 Summary(pl):	Pliki nag³ówkowe Nautilus-cd-burner 
 Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
+Requires:	%{name}-libs = %{version}-%{release}
 Requires:	gtk+2-devel >= 2:2.4.0
 
 %description devel
@@ -46,6 +45,29 @@ Nautilus-cd-burner headers files.
 %description devel -l pl
 Pliki nag³ówkowe Nautilus-cd-burner.
 
+%package libs
+Summary:	nautilus-cd-burner library
+Summary(pl):	Biblioteka nautilus-cd-burner
+Group:		Libraries
+
+%description libs
+nautilus-cd-burner library.
+
+%description libs -l pl
+Biblioteka nautilus-cd-burner.
+
+%package static
+Summary:	Static nautilus-cd-burner library
+Summary(pl):	Statyczna biblioteka nautilus-cd-burner
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+
+%description static
+Static nautilus-cd-burner library.
+
+%description static -l pl
+Statyczna biblioteka nautilus-cd-burner.
+
 %prep
 %setup -q
 
@@ -53,6 +75,7 @@ Pliki nag³ówkowe Nautilus-cd-burner.
 cp -f /usr/share/automake/config.sub .
 %{__autoconf}
 %configure \
+	--enable-static \
 	--disable-schemas-install \
 	--%{?with_hal:en}%{!?with_hal:dis}able-hal
 
@@ -72,10 +95,10 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 rm -f $RPM_BUILD_ROOT%{_libdir}/gnome-vfs-*/modules/*.la
 
 %post
-/sbin/ldconfig
 %gconf_schema_install
 
-%postun -p /sbin/ldconfig
+%post	libs -p /sbin/ldconfig
+%postun libs -p /sbin/ldconfig
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -88,7 +111,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/gnome-vfs-2.0/modules/*.so
 %attr(755,root,root) %{_libdir}/nautilus/extensions-1.0/lib*.so*
 %{_libdir}/nautilus/extensions-1.0/lib*.la
-%{_libdir}/libnautilus-burn.so.*.*.*
 %{_sysconfdir}/gnome-vfs-2.0/modules/*
 %{_sysconfdir}/gconf/schemas/ncb.schemas
 %{_datadir}/%{name}
@@ -99,3 +121,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libnautilus-burn.la
 %{_includedir}/libnautilus-burn
 %{_pkgconfigdir}/*
+
+%files libs
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/libnautilus-burn.so.*.*.*
+
+%files static
+%defattr(644,root,root,755)
+%{_libdir}/libnautilus-burn.a
