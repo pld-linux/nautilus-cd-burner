@@ -9,7 +9,7 @@ Version:	2.9.8
 Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.9/%{name}-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/gnome/sources/nautilus-cd-burner/2.9/%{name}-%{version}.tar.bz2
 # Source0-md5:	c4eb475944963358b7df282e279336f6
 URL:		http://www.gnome.org/
 Buildrequires:	GConf2-devel >= 2.9.90
@@ -21,6 +21,7 @@ BuildRequires:	intltool >= 0.22
 BuildRequires:	libglade2-devel >= 1:2.5.0
 BuildRequires:	libgnomeui-devel >= 2.9.1
 BuildRequires:	nautilus-devel >= 2.9.90
+BuildRequires:	pkgconfig
 Requires(post): GConf2 >= 2.9.90
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	cdrtools
@@ -82,7 +83,6 @@ cp -f /usr/share/automake/config.sub .
 	--enable-static \
 	--disable-schemas-install \
 	--%{?with_hal:en}%{!?with_hal:dis}able-hal
-
 %{__make}
 
 %install
