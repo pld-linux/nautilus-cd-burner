@@ -1,23 +1,26 @@
 Summary:	Extension for Nautilus to write CD
 Summary(pl):	Rozszerzenie Nautilusa do zapisu p³yt CD
 Name:		nautilus-cd-burner
-Version:	2.6.1
+Version:	2.7.2
 Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	7998cbe011e9e0a22d9362a2430d578b
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.7/%{name}-%{version}.tar.bz2
+# Source0-md5:	f29ec70fc9df46ba52409cb080d2d360
 Patch0:		%{name}-locale-names.patch
+Patch1:		%{name}-hal_version_fix.patch
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gnome-vfs2-devel >= 2.6.1
+BuildRequires:	gnome-vfs2-devel >= 2.7.1
+BuildRequires:	hal-devel
 BuildRequires:	intltool
 BuildRequires:	libglade2-devel >= 1:2.3.6
-BuildRequires:	nautilus-devel >= 2.6.1
-Requires(post): GConf2 
+BuildRequires:	nautilus-devel >= 2.7.1
+Requires(post): GConf2 >= 2.7.1
 Requires:	cdrtools
 Requires:	cdrtools-mkisofs
+Requires:	hal
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -28,9 +31,22 @@ write files to a CD burner.
 Nautilus-cd-burner to rozszerzenie Nautilusa, u³atwiaj±ce nagranie
 plików na p³ycie CD.
 
+%package devel
+Summary:        Nautilus-cd-burner include files
+Summary(pl):    Pliki nag³ówkowe Nautilus-cd-burner 
+Group:          Development/Libraries
+Requires:       %{name} = %{version}-%{release}
+
+%description devel
+Nautilus-cd-burner headers files.
+
+%description devel -l pl
+Pliki nag³ówkowe Nautilus-cd-burner.
+
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 mv po/{no,nb}.po
 
@@ -40,7 +56,8 @@ glib-gettextize --copy --force
 intltoolize --copy --force
 %{__autoconf}
 %configure \
-	--disable-schemas-install
+	--disable-schemas-install \
+	--enable-hal
 
 %{__make}
 
@@ -54,7 +71,11 @@ rm -rf $RPM_BUILD_ROOT
 %find_lang %{name}
 
 %post
+/sbin/ldconfig
 %gconf_schema_install
+
+%postun
+/sbin/ldconfig
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -68,6 +89,13 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/nautilus/extensions-1.0/lib*.so*
 %{_libdir}/gnome-vfs-2.0/modules/*.la
 %{_libdir}/nautilus/extensions-1.0/lib*.la
+%{_libdir}/libnautilus-burn.so.*.*.*
+%{_libdir}/libnautilus-burn.la
 %{_sysconfdir}/gnome-vfs-2.0/modules/*
 %{_sysconfdir}/gconf/schemas/ncb.schemas
 %{_datadir}/%{name}
+
+%files devel
+%defattr(644,root,root,755)
+%{_includedir}/libnautilus-burn
+%{_pkgconfigdir}/*
