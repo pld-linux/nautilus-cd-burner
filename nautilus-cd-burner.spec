@@ -10,6 +10,7 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.6/%{name}-%{version}.t
 Patch0:		%{name}-locale-names.patch
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	gnome-vfs2-devel >= 2.6.0
 BuildRequires:	intltool
 BuildRequires:	libglade2-devel >= 2.3.6
@@ -34,6 +35,7 @@ plików na p³ycie CD.
 mv po/{no,nb}.po
 
 %build
+cp -f /usr/share/automake/config.* .
 glib-gettextize --copy --force
 intltoolize --copy --force
 %{__autoconf}
