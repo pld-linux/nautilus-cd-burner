@@ -1,0 +1,12 @@
+diff -aurN nautilus-cd-burner-2.7.2.orig/configure.in nautilus-cd-burner-2.7.2/configure.in
+--- nautilus-cd-burner-2.7.2.orig/configure.in	2004-06-11 14:13:59.000000000 +0200
++++ nautilus-cd-burner-2.7.2/configure.in	2004-06-12 00:00:01.381855072 +0200
+@@ -39,7 +39,7 @@
+ LIBGNOME_REQUIRED=2.0.0
+ EEL_REQUIRED=2.0.0
+ NAUTILUS_REQUIRED=2.5.5
+-HAL_REQUIRED=0.15.0
++HAL_REQUIRED=0.2.90
+ 
+ dnl ===========================================================================
+ dnl Test host and define whether we have CD drives discoverability, and whether
