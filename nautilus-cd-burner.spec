@@ -40,7 +40,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS README ChangeLog
 %attr(755,root,root) %{_bindir}/nautilus-cd-burner
+%attr(755,root,root) %{_libdir}/mapping-daemon
+%attr(755,root,root) %{_libdir}/gnome-vfs-2.0/modules/*.so
+%{_libdir}/gnome-vfs-2.0/modules/*.la
 %{_sysconfdir}/*
-%{_libdir}/gnome-vfs-2.0/modules/*
-%attr(755,root,root)%{_libdir}/mapping-daemon
 %{_datadir}/*
