@@ -1,3 +1,4 @@
+#
 # Conditional build
 %bcond_without	hal	# disable HAL support
 #
@@ -19,6 +20,7 @@ BuildRequires:	intltool >= 0.22
 BuildRequires:	libglade2-devel >= 1:2.4.0
 BuildRequires:	nautilus-devel >= 2.8.0
 Requires(post): GConf2 >= 2.7.92
+Requires:	%{name}-libs = %{version}-%{release}
 Requires:	cdrtools
 Requires:	cdrtools-mkisofs
 %{?with_hal:Requires:	hal >= 0.2.98}
