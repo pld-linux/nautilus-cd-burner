@@ -9,10 +9,11 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/0.6/%{name}-%{version}.t
 # Source0-md5:	01f4042f9f92943b20ec51701a7c90c2
 Patch0:		%{name}-locale-names.patch
 URL:		http://www.gnome.org/
+BuildRequires:	autoconf
 BuildRequires:	gnome-vfs2-devel >= 2.5.90
+BuildRequires:	intltool
 BuildRequires:	libglade2-devel >= 2.3.2
 BuildRequires:	nautilus-devel >= 2.5.91
-BuildRequires:	intltool
 Requires(post): GConf2 
 Requires:	cdrtools
 Requires:	cdrtools-mkisofs
