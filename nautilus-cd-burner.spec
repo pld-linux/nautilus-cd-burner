@@ -37,6 +37,17 @@ write files to a CD burner.
 Nautilus-cd-burner to rozszerzenie Nautilusa, u³atwiaj±ce nagranie
 plików na p³ycie CD.
 
+%package libs
+Summary:	nautilus-cd-burner library
+Summary(pl):	Biblioteka nautilus-cd-burner
+Group:		Libraries
+
+%description libs
+nautilus-cd-burner library.
+
+%description libs -l pl
+Biblioteka nautilus-cd-burner.
+
 %package devel
 Summary:	Nautilus-cd-burner include files
 Summary(pl):	Pliki nag³ówkowe Nautilus-cd-burner 
@@ -49,17 +60,6 @@ Nautilus-cd-burner headers files.
 
 %description devel -l pl
 Pliki nag³ówkowe Nautilus-cd-burner.
-
-%package libs
-Summary:	nautilus-cd-burner library
-Summary(pl):	Biblioteka nautilus-cd-burner
-Group:		Libraries
-
-%description libs
-nautilus-cd-burner library.
-
-%description libs -l pl
-Biblioteka nautilus-cd-burner.
 
 %package static
 Summary:	Static nautilus-cd-burner library
@@ -92,21 +92,21 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 
+rm -f $RPM_BUILD_ROOT%{_libdir}/gnome-vfs-*/modules/*.{la,a}
+rm -f $RPM_BUILD_ROOT%{_libdir}/nautilus/extensions-1.0/*.{la,a}
+
 rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %find_lang %{name}
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/gnome-vfs-*/modules/*.{la,a}
-rm -f $RPM_BUILD_ROOT%{_libdir}/nautilus/extensions-1.0/*.a
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %post
 %gconf_schema_install
 
 %post	libs -p /sbin/ldconfig
 %postun libs -p /sbin/ldconfig
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -115,10 +115,13 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/mapping-daemon
 %attr(755,root,root) %{_libdir}/gnome-vfs-2.0/modules/*.so
 %attr(755,root,root) %{_libdir}/nautilus/extensions-1.0/lib*.so*
-%{_libdir}/nautilus/extensions-1.0/lib*.la
 %{_sysconfdir}/gnome-vfs-2.0/modules/*
 %{_sysconfdir}/gconf/schemas/ncb.schemas
 %{_datadir}/%{name}
+
+%files libs
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/libnautilus-burn.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
@@ -126,10 +129,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libnautilus-burn.la
 %{_includedir}/libnautilus-burn
 %{_pkgconfigdir}/*
-
-%files libs
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libnautilus-burn.so.*.*.*
 
 %files static
 %defattr(644,root,root,755)
