@@ -42,5 +42,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/nautilus-cd-burner
 %{_sysconfdir}/*
 %{_libdir}/gnome-vfs-2.0/modules/*
-%{_libdir}/mapping-daemon
+%attr(755,root,root)%{_libdir}/mapping-daemon
 %{_datadir}/*
