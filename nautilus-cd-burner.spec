@@ -53,7 +53,7 @@ Pliki nag³ówkowe Nautilus-cd-burner.
 %{__autoconf}
 %configure \
 	--disable-schemas-install \
-	--%{?with_hal:ena}%{!?with_hal:dis}able-hal
+	--%{?with_hal:en}%{!?with_hal:dis}able-hal
 
 %{__make}
 
