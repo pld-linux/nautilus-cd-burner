@@ -9,13 +9,14 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.7/%{name}-%{version}.t
 # Source0-md5:	b38a6a024e56bbb97d41165e5bc08033
 Patch0:		%{name}-locale-names.patch
 URL:		http://www.gnome.org/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	gnome-vfs2-devel >= 2.7.1
 BuildRequires:	hal-devel >= 0.2.92
-BuildRequires:	intltool
-BuildRequires:	libglade2-devel >= 1:2.3.6
+BuildRequires:	intltool >= 0.22
+BuildRequires:	libglade2-devel >= 1:2.4.0
 BuildRequires:	nautilus-devel >= 2.7.1
+Requires(post):	/sbin/ldconfig
 Requires(post): GConf2 >= 2.7.1
 Requires:	cdrtools
 Requires:	cdrtools-mkisofs
@@ -31,10 +32,10 @@ Nautilus-cd-burner to rozszerzenie Nautilusa, u³atwiaj±ce nagranie
 plików na p³ycie CD.
 
 %package devel
-Summary:        Nautilus-cd-burner include files
-Summary(pl):    Pliki nag³ówkowe Nautilus-cd-burner 
-Group:          Development/Libraries
-Requires:       %{name} = %{version}-%{release}
+Summary:	Nautilus-cd-burner include files
+Summary(pl):	Pliki nag³ówkowe Nautilus-cd-burner 
+Group:		Development/Libraries
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Nautilus-cd-burner headers files.
@@ -68,12 +69,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %find_lang %{name}
 
+rm -f $RPM_BUILD_ROOT%{_libdir}/gnome-vfs-*/modules/*.la
+
 %post
 /sbin/ldconfig
 %gconf_schema_install
 
-%postun
-/sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -85,15 +87,15 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/mapping-daemon
 %attr(755,root,root) %{_libdir}/gnome-vfs-2.0/modules/*.so
 %attr(755,root,root) %{_libdir}/nautilus/extensions-1.0/lib*.so*
-%{_libdir}/gnome-vfs-2.0/modules/*.la
 %{_libdir}/nautilus/extensions-1.0/lib*.la
 %{_libdir}/libnautilus-burn.so.*.*.*
-%{_libdir}/libnautilus-burn.la
 %{_sysconfdir}/gnome-vfs-2.0/modules/*
 %{_sysconfdir}/gconf/schemas/ncb.schemas
 %{_datadir}/%{name}
 
 %files devel
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/libnautilus-burn.so
+%{_libdir}/libnautilus-burn.la
 %{_includedir}/libnautilus-burn
 %{_pkgconfigdir}/*
