@@ -5,25 +5,28 @@
 Summary:	Extension for Nautilus to write CD
 Summary(pl):	Rozszerzenie Nautilusa do zapisu p³yt CD
 Name:		nautilus-cd-burner
-Version:	2.8.7
+Version:	2.10.0
 Release:	1
-License:	LGPL
+License:	LGPL v2+/GPL v2+ 
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/nautilus-cd-burner/2.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	b5b4b0074e5fa73d8e79a5cb221e0ca4
+Source0:	http://ftp.gnome.org/pub/gnome/sources/nautilus-cd-burner/2.10/%{name}-%{version}.tar.bz2
+# Source0-md5:	eba87e8b043cbd0a94d3371aa869bcf1
 URL:		http://www.gnome.org/
+Buildrequires:	GConf2-devel >= 2.10.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	gnome-vfs2-devel >= 2.7.92
-%{?with_hal:BuildRequires:	hal-devel >= 0.2.98}
+BuildRequires:	gnome-vfs2-devel >= 2.10.0
+%{?with_hal:BuildRequires:	hal-devel >= 0.4.7}
 BuildRequires:	intltool >= 0.22
-BuildRequires:	libglade2-devel >= 1:2.4.0
-BuildRequires:	nautilus-devel >= 2.8.0
-Requires(post): GConf2 >= 2.7.92
+BuildRequires:	libglade2-devel >= 1:2.5.0
+BuildRequires:	libgnomeui-devel >= 2.10.0
+BuildRequires:	nautilus-devel >= 2.10.0
+BuildRequires:	pkgconfig
+Requires(post): GConf2 >= 2.10.0
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	cdrtools
 Requires:	cdrtools-mkisofs
-%{?with_hal:Requires:	hal-libs >= 0.2.98}
+%{?with_hal:Requires:	hal-libs >= 0.4.7}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -39,7 +42,7 @@ Summary:	Nautilus-cd-burner include files
 Summary(pl):	Pliki nag³ówkowe Nautilus-cd-burner 
 Group:		Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
-Requires:	gtk+2-devel >= 2:2.4.0
+Requires:	gtk+2-devel >= 2:2.6.2
 
 %description devel
 Nautilus-cd-burner headers files.
@@ -80,7 +83,6 @@ cp -f /usr/share/automake/config.sub .
 	--enable-static \
 	--disable-schemas-install \
 	--%{?with_hal:en}%{!?with_hal:dis}able-hal
-
 %{__make}
 
 %install
