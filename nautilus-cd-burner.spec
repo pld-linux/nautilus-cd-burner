@@ -42,7 +42,6 @@ plików na p³ycie CD.
 Summary:	nautilus-cd-burner library
 Summary(pl):	Biblioteka nautilus-cd-burner
 Group:		Libraries
-Requires(post,postun):	/sbin/ldconfig
 
 %description libs
 nautilus-cd-burner library.
