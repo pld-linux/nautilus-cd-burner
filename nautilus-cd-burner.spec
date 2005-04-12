@@ -5,24 +5,25 @@
 Summary:	Extension for Nautilus to write CD
 Summary(pl):	Rozszerzenie Nautilusa do zapisu p³yt CD
 Name:		nautilus-cd-burner
-Version:	2.10.0
-Release:	2
+Version:	2.10.1
+Release:	1
 License:	LGPL v2+/GPL v2+ 
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/nautilus-cd-burner/2.10/%{name}-%{version}.tar.bz2
-# Source0-md5:	eba87e8b043cbd0a94d3371aa869bcf1
+# Source0-md5:	ce2b3bd588ca77190976e2487badc17d
 URL:		http://www.gnome.org/
 Buildrequires:	GConf2-devel >= 2.10.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	gnome-vfs2-devel >= 2.10.0-2
 %{?with_hal:BuildRequires:	hal-devel >= 0.4.7}
-BuildRequires:	intltool >= 0.22
-BuildRequires:	libglade2-devel >= 1:2.5.0
+BuildRequires:	intltool >= 0.33
+BuildRequires:	libglade2-devel >= 1:2.5.1
 BuildRequires:	libgnomeui-devel >= 2.10.0-2
-BuildRequires:	nautilus-devel >= 2.10.0
+BuildRequires:	nautilus-devel >= 2.10.1
 BuildRequires:	pkgconfig
-Requires(post): GConf2 >= 2.10.0
+BuildRequires:	rpmbuild(macros) >= 1.197
+Requires(post,preun): GConf2 >= 2.10.0
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	cdrtools
 Requires:	cdrtools-mkisofs
@@ -41,6 +42,7 @@ plików na p³ycie CD.
 Summary:	nautilus-cd-burner library
 Summary(pl):	Biblioteka nautilus-cd-burner
 Group:		Libraries
+Requires(post,postun):	/sbin/ldconfig
 
 %description libs
 nautilus-cd-burner library.
@@ -53,7 +55,7 @@ Summary:	Nautilus-cd-burner include files
 Summary(pl):	Pliki nag³ówkowe Nautilus-cd-burner 
 Group:		Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
-Requires:	gtk+2-devel >= 2:2.6.2
+Requires:	gtk+2-devel >= 2:2.6.4
 
 %description devel
 Nautilus-cd-burner headers files.
@@ -103,10 +105,16 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%gconf_schema_install
+%gconf_schema_install ncb.schemas
 
-%post	libs -p /sbin/ldconfig
-%postun libs -p /sbin/ldconfig
+%preun
+%gconf_schema_uninstall ncb.schemas
+
+%post libs
+%ldconfig_post
+
+%postun libs
+%ldconfig_postun
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
