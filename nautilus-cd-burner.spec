@@ -110,11 +110,8 @@ rm -rf $RPM_BUILD_ROOT
 %preun
 %gconf_schema_uninstall ncb.schemas
 
-%post libs
-%ldconfig_post
-
-%postun libs
-%ldconfig_postun
+%post	libs -p /sbin/ldconfig
+%postun libs -p /sbin/ldconfig
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
