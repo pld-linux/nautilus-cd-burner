@@ -5,12 +5,12 @@
 Summary:	Extension for Nautilus to write CD
 Summary(pl):	Rozszerzenie Nautilusa do zapisu p³yt CD
 Name:		nautilus-cd-burner
-Version:	2.10.1
+Version:	2.10.2
 Release:	1
 License:	LGPL v2+/GPL v2+ 
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/nautilus-cd-burner/2.10/%{name}-%{version}.tar.bz2
-# Source0-md5:	ce2b3bd588ca77190976e2487badc17d
+# Source0-md5:	ed87311d620041d118d408072341343b
 URL:		http://www.gnome.org/
 Buildrequires:	GConf2-devel >= 2.10.0
 BuildRequires:	autoconf >= 2.52
