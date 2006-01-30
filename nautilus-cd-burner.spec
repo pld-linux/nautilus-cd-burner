@@ -1,22 +1,23 @@
 Summary:	Extension for Nautilus to write CD
 Summary(pl):	Rozszerzenie Nautilusa do zapisu p³yt CD
 Name:		nautilus-cd-burner
-Version:	2.12.2
+Version:	2.13.90
 Release:	1
 License:	LGPL v2+/GPL v2+ 
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/nautilus-cd-burner/2.12/%{name}-%{version}.tar.bz2
-# Source0-md5:	46c793c4f381608297cdd7e2fac1ad72
+Source0:	http://ftp.gnome.org/pub/gnome/sources/nautilus-cd-burner/2.13/%{name}-%{version}.tar.bz2
+# Source0-md5:	081beaac05a88f6d2079de9c1ef898f6
+Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
 Buildrequires:	GConf2-devel >= 2.10.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	gnome-vfs2-devel >= 2.10.1
-BuildRequires:	hal-devel >= 0.5.0
+BuildRequires:	hal-devel >= 0.5.4
 BuildRequires:	intltool >= 0.33
 BuildRequires:	libglade2-devel >= 1:2.5.1
 BuildRequires:	libgnomeui-devel >= 2.11.2-2
-BuildRequires:	nautilus-devel >= 2.12.1
+BuildRequires:	nautilus-devel >= 2.13.4
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 Requires(post,preun): GConf2 >= 2.10.0
@@ -117,6 +118,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_sysconfdir}/gnome-vfs-2.0/modules/*
 %{_sysconfdir}/gconf/schemas/ncb.schemas
 %{_datadir}/%{name}
+%{_desktopdir}/*.desktop
 
 %files libs
 %defattr(644,root,root,755)
