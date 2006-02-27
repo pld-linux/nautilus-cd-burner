@@ -1,19 +1,21 @@
 Summary:	Extension for Nautilus to write CD
 Summary(pl):	Rozszerzenie Nautilusa do zapisu p³yt CD
 Name:		nautilus-cd-burner
-Version:	2.13.91
+Version:	2.13.92
 Release:	1
 License:	LGPL v2+/GPL v2+ 
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/nautilus-cd-burner/2.13/%{name}-%{version}.tar.bz2
-# Source0-md5:	ce3a04bee9dc21730bc03c7c7359b322
+# Source0-md5:	64645b858f9cd0ca792b2f24eb24870c
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
 Buildrequires:	GConf2-devel >= 2.10.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
+BuildRequires:	eel-devel >= 2.13.3
+BuildRequires:	gnome-mount-devel >= 0.4
 BuildRequires:	gnome-vfs2-devel >= 2.10.1
-BuildRequires:	hal-devel >= 0.5.4
+BuildRequires:	hal-devel >= 0.5.6
 BuildRequires:	intltool >= 0.33
 BuildRequires:	libglade2-devel >= 1:2.5.1
 BuildRequires:	libgnomeui-devel >= 2.11.2-2
@@ -24,7 +26,7 @@ Requires(post,preun): GConf2 >= 2.10.0
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	cdrecord
 Requires:	mkisofs
-Requires:	hal-libs >= 0.5.4
+Requires:	hal-libs >= 0.5.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -78,6 +80,7 @@ Statyczna biblioteka nautilus-cd-burner.
 cp -f /usr/share/automake/config.sub .
 %{__autoconf}
 %configure \
+	--enable-gnome-mount \
 	--enable-static \
 	--disable-schemas-install
 %{__make}
