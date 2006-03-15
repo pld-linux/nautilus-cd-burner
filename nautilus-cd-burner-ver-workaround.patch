@@ -1,0 +1,11 @@
+--- nautilus-cd-burner-2.14.0.1/configure.in.wiget	2006-03-15 10:29:59.000000000 +0100
++++ nautilus-cd-burner-2.14.0.1/configure.in	2006-03-15 10:30:08.000000000 +0100
+@@ -2,7 +2,7 @@
+ 
+ m4_define(nautilus_burn_version_major, 2)
+ m4_define(nautilus_burn_version_minor, 14)
+-m4_define(nautilus_burn_version_micro, 0.1)
++m4_define(nautilus_burn_version_micro, 0)
+ 
+ AC_INIT(nautilus-cd-burner,
+         nautilus_burn_version_major.nautilus_burn_version_minor.nautilus_burn_version_micro)
