@@ -1,12 +1,12 @@
 Summary:	Extension for Nautilus to write CD
 Summary(pl):	Rozszerzenie Nautilusa do zapisu p³yt CD
 Name:		nautilus-cd-burner
-Version:	2.14.1
-Release:	2
+Version:	2.14.2
+Release:	1
 License:	LGPL v2+/GPL v2+ 
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/nautilus-cd-burner/2.14/%{name}-%{version}.tar.bz2
-# Source0-md5:	093b21536b6a6670742dfadafecd032c
+# Source0-md5:	5e85fc810f6160916fac26caa805cc65
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
 Buildrequires:	GConf2-devel >= 2.10.0
@@ -14,11 +14,11 @@ BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	eel-devel >= 2.14.0
 BuildRequires:	gnome-mount-devel >= 0.4
-BuildRequires:	gnome-vfs2-devel >= 2.10.1
+BuildRequires:	gnome-vfs2-devel >= 2.14.2
 BuildRequires:	hal-devel >= 0.5.6
 BuildRequires:	intltool >= 0.33
 BuildRequires:	libglade2-devel >= 1:2.5.1
-BuildRequires:	libgnomeui-devel >= 2.11.2-2
+BuildRequires:	libgnomeui-devel >= 2.14.1
 BuildRequires:	nautilus-devel >= 2.14.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
@@ -53,7 +53,7 @@ Summary:	Nautilus-cd-burner include files
 Summary(pl):	Pliki nag³ówkowe Nautilus-cd-burner 
 Group:		Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
-Requires:	gtk+2-devel >= 2:2.6.4
+Requires:	gtk+2-devel >= 2:2.8.18
 
 %description devel
 Nautilus-cd-burner headers files.
