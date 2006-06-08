@@ -1,25 +1,25 @@
 Summary:	Extension for Nautilus to write CD
 Summary(pl):	Rozszerzenie Nautilusa do zapisu p³yt CD
 Name:		nautilus-cd-burner
-Version:	2.14.2
+Version:	2.15.2
 Release:	1
 License:	LGPL v2+/GPL v2+ 
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/nautilus-cd-burner/2.14/%{name}-%{version}.tar.bz2
-# Source0-md5:	5e85fc810f6160916fac26caa805cc65
+Source0:	http://ftp.gnome.org/pub/gnome/sources/nautilus-cd-burner/2.15/%{name}-%{version}.tar.bz2
+# Source0-md5:	d7138dd1668b3d3a6fcbd2fc7ce9b4c7
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
 Buildrequires:	GConf2-devel >= 2.10.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	eel-devel >= 2.14.0
+BuildRequires:	eel-devel >= 2.15.1
 BuildRequires:	gnome-mount-devel >= 0.4
-BuildRequires:	gnome-vfs2-devel >= 2.14.2
+BuildRequires:	gnome-vfs2-devel >= 2.15.1
 BuildRequires:	hal-devel >= 0.5.6
 BuildRequires:	intltool >= 0.33
 BuildRequires:	libglade2-devel >= 1:2.5.1
-BuildRequires:	libgnomeui-devel >= 2.14.1
-BuildRequires:	nautilus-devel >= 2.14.0
+BuildRequires:	libgnomeui-devel >= 2.15.1
+BuildRequires:	nautilus-devel >= 2.15.1
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 Requires(post,preun): GConf2 >= 2.10.0
@@ -53,7 +53,7 @@ Summary:	Nautilus-cd-burner include files
 Summary(pl):	Pliki nag³ówkowe Nautilus-cd-burner 
 Group:		Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
-Requires:	gtk+2-devel >= 2:2.8.18
+Requires:	gtk+2-devel >= 2:2.9.2
 
 %description devel
 Nautilus-cd-burner headers files.
@@ -96,7 +96,7 @@ rm -rf $RPM_BUILD_ROOT
 rm -f $RPM_BUILD_ROOT%{_libdir}/gnome-vfs-*/modules/*.{la,a}
 rm -f $RPM_BUILD_ROOT%{_libdir}/nautilus/extensions-1.0/*.{la,a}
 
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/ug
 
 %find_lang %{name}
 
@@ -104,10 +104,10 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%gconf_schema_install ncb.schemas
+%gconf_schema_install nautilus-cd-burner.schemas
 
 %preun
-%gconf_schema_uninstall ncb.schemas
+%gconf_schema_uninstall nautilus-cd-burner.schemas
 
 %post	libs -p /sbin/ldconfig
 %postun libs -p /sbin/ldconfig
@@ -120,7 +120,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/gnome-vfs-2.0/modules/*.so
 %attr(755,root,root) %{_libdir}/nautilus/extensions-1.0/lib*.so*
 %{_sysconfdir}/gnome-vfs-2.0/modules/*
-%{_sysconfdir}/gconf/schemas/ncb.schemas
+%{_sysconfdir}/gconf/schemas/nautilus-cd-burner.schemas
 %{_datadir}/%{name}
 %{_desktopdir}/*.desktop
 
