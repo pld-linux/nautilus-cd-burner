@@ -1,6 +1,5 @@
-diff -aurN nautilus-cd-burner-2.13.5.orig/nautilus-cd-burner.desktop.in nautilus-cd-burner-2.13.5/nautilus-cd-burner.desktop.in
---- nautilus-cd-burner-2.13.5.orig/nautilus-cd-burner.desktop.in	2006-01-10 17:23:18.000000000 +0100
-+++ nautilus-cd-burner-2.13.5/nautilus-cd-burner.desktop.in	2006-01-30 19:25:30.820754000 +0100
+--- nautilus-cd-burner-2.13.5.orig/data/nautilus-cd-burner.desktop.in	2006-01-10 17:23:18.000000000 +0100
++++ nautilus-cd-burner-2.13.5/data/nautilus-cd-burner.desktop.in	2006-01-30 19:25:30.820754000 +0100
 @@ -8,7 +8,7 @@
  Terminal=false
  StartupNotify=true
