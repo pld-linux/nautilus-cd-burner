@@ -1,29 +1,29 @@
 Summary:	Extension for Nautilus to write CD
 Summary(pl):	Rozszerzenie Nautilusa do zapisu p³yt CD
 Name:		nautilus-cd-burner
-Version:	2.15.4
+Version:	2.15.5
 Release:	1
 License:	LGPL v2+/GPL v2+ 
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/nautilus-cd-burner/2.15/%{name}-%{version}.tar.bz2
-# Source0-md5:	e0c9e4758c8cd785704c76f04f9ac5e5
+# Source0-md5:	ed2887cef0675e8b3ef7b9cdeb1bc9e8
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
 Buildrequires:	GConf2-devel >= 2.14.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	eel-devel >= 2.15.4
+BuildRequires:	eel-devel >= 2.15.90
 BuildRequires:	gnome-mount-devel >= 0.4
-BuildRequires:	gnome-vfs2-devel >= 2.15.3
+BuildRequires:	gnome-vfs2-devel >= 2.15.90
 BuildRequires:	hal-devel >= 0.5.7
 BuildRequires:	intltool >= 0.35
 BuildRequires:	libglade2-devel >= 1:2.6.0
-BuildRequires:	libgnomeui-devel >= 2.15.2
+BuildRequires:	libgnomeui-devel >= 2.15.90
 BuildRequires:	nautilus-devel >= 2.15.4
 BuildRequires:	pkgconfig
-BuildRequires:	rpmbuild(macros) >= 1.197
+BuildRequires:	rpmbuild(macros) >= 1.311
 Requires(post,preun): GConf2 >= 2.14.0
-Requires(post,postun): gtk+2 >= 2.10.0
+Requires(post,postun): gtk+2 >= 2.10.1
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	cdrecord
 Requires:	mkisofs
@@ -54,7 +54,7 @@ Summary:	Nautilus-cd-burner include files
 Summary(pl):	Pliki nag³ówkowe Nautilus-cd-burner 
 Group:		Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
-Requires:	gtk+2-devel >= 2:2.10.0
+Requires:	gtk+2-devel >= 2:2.10.1
 
 %description devel
 Nautilus-cd-burner headers files.
@@ -81,7 +81,6 @@ Statyczna biblioteka nautilus-cd-burner.
 %build
 cp -f /usr/share/automake/config.sub .
 %{__autoconf}
-LDFLAGS="%{rpmldflags} -Wl,--as-needed"
 %configure \
 	--enable-gnome-mount \
 	--enable-static \
@@ -107,13 +106,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %gconf_schema_install nautilus-cd-burner.schemas
-gtk-update-icon-cache -qf %{_datadir}/icons/hicolor
+%update_icon_cache hicolor
 
 %preun
 %gconf_schema_uninstall nautilus-cd-burner.schemas
 
 %postun
-gtk-update-icon-cache -qf %{_datadir}/icons/hicolor
+%update_icon_cache hicolor
 
 %post	libs -p /sbin/ldconfig
 %postun libs -p /sbin/ldconfig
