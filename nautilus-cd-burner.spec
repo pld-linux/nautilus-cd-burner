@@ -1,12 +1,12 @@
 Summary:	Extension for Nautilus to write CD
 Summary(pl):	Rozszerzenie Nautilusa do zapisu p³yt CD
 Name:		nautilus-cd-burner
-Version:	2.16.0
+Version:	2.16.1
 Release:	1
 License:	LGPL v2+/GPL v2+ 
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/nautilus-cd-burner/2.16/%{name}-%{version}.tar.bz2
-# Source0-md5:	a5beaff98911479bc5187dfa18920f3e
+# Source0-md5:	f64e98c9b3d3a21cb54dc4d4d3983de2
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
 Buildrequires:	GConf2-devel >= 2.14.0
@@ -14,16 +14,16 @@ BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	eel-devel >= 2.16.0
 BuildRequires:	gnome-mount-devel >= 0.4
-BuildRequires:	gnome-vfs2-devel >= 2.16.0
+BuildRequires:	gnome-vfs2-devel >= 2.16.1
 BuildRequires:	hal-devel >= 0.5.7.1
 BuildRequires:	intltool >= 0.35
 BuildRequires:	libglade2-devel >= 1:2.6.0
 BuildRequires:	libgnomeui-devel >= 2.16.0
-BuildRequires:	nautilus-devel >= 2.16.0
+BuildRequires:	nautilus-devel >= 2.16.1
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 Requires(post,preun): GConf2 >= 2.14.0
-Requires(post,postun): gtk+2 >= 2.10.3
+Requires(post,postun): gtk+2 >= 2.10.5
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	cdrecord
 Requires:	mkisofs
@@ -54,7 +54,7 @@ Summary:	Nautilus-cd-burner include files
 Summary(pl):	Pliki nag³ówkowe Nautilus-cd-burner 
 Group:		Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
-Requires:	gtk+2-devel >= 2:2.10.3
+Requires:	gtk+2-devel >= 2:2.10.5
 
 %description devel
 Nautilus-cd-burner headers files.
