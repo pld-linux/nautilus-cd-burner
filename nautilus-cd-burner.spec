@@ -1,12 +1,12 @@
 Summary:	Extension for Nautilus to write CD
 Summary(pl):	Rozszerzenie Nautilusa do zapisu p³yt CD
 Name:		nautilus-cd-burner
-Version:	2.16.2
+Version:	2.16.3
 Release:	1
-License:	LGPL v2+/GPL v2+ 
+License:	LGPL v2+/GPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/nautilus-cd-burner/2.16/%{name}-%{version}.tar.bz2
-# Source0-md5:	9a5092dfe589bc182326d106faac4acc
+# Source0-md5:	6e3653c849e24aacd7e29b4030327b4e
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
 Buildrequires:	GConf2-devel >= 2.16.0
@@ -16,19 +16,19 @@ BuildRequires:	eel-devel >= 2.16.3
 BuildRequires:	gnome-mount-devel >= 0.4
 BuildRequires:	gnome-vfs2-devel >= 2.16.3
 BuildRequires:	hal-devel >= 0.5.7.1
-BuildRequires:	intltool >= 0.35.0
+BuildRequires:	intltool >= 0.35.4
 BuildRequires:	libglade2-devel >= 1:2.6.0
 BuildRequires:	libgnomeui-devel >= 2.16.1
 BuildRequires:	nautilus-devel >= 2.16.3
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
-Requires(post,preun):	GConf2 >= 2.16.0
-Requires(post,postun):	gtk+2 >= 2.10.6
+Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
+Requires(post,preun):	GConf2 >= 2.16.0
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	cdrecord
-Requires:	mkisofs
 Requires:	hal-libs >= 0.5.7.1
+Requires:	mkisofs
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -52,10 +52,10 @@ Biblioteka nautilus-cd-burner.
 
 %package devel
 Summary:	Nautilus-cd-burner include files
-Summary(pl):	Pliki nag³ówkowe Nautilus-cd-burner 
+Summary(pl):	Pliki nag³ówkowe Nautilus-cd-burner
 Group:		Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
-Requires:	gtk+2-devel >= 2:2.10.6
+Requires:	gtk+2-devel >= 2:2.10.9
 
 %description devel
 Nautilus-cd-burner headers files.
@@ -138,7 +138,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libnautilus-burn.so
 %{_libdir}/libnautilus-burn.la
 %{_includedir}/libnautilus-burn
-%{_pkgconfigdir}/*
+%{_pkgconfigdir}/*.pc
 
 %files static
 %defattr(644,root,root,755)
