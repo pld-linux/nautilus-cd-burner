@@ -1,5 +1,5 @@
 Summary:	Extension for Nautilus to write CD
-Summary(pl):	Rozszerzenie Nautilusa do zapisu p≥yt CD
+Summary(pl.UTF-8):   Rozszerzenie Nautilusa do zapisu p≈Çyt CD
 Name:		nautilus-cd-burner
 Version:	2.16.3
 Release:	1
@@ -35,24 +35,24 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Nautilus-cd-burner is an extension to Nautilus that makes it easy to
 write files to a CD burner.
 
-%description -l pl
-Nautilus-cd-burner to rozszerzenie Nautilusa, u≥atwiaj±ce nagranie
-plikÛw na p≥ycie CD.
+%description -l pl.UTF-8
+Nautilus-cd-burner to rozszerzenie Nautilusa, u≈ÇatwiajƒÖce nagranie
+plik√≥w na p≈Çycie CD.
 
 %package libs
 Summary:	nautilus-cd-burner library
-Summary(pl):	Biblioteka nautilus-cd-burner
+Summary(pl.UTF-8):   Biblioteka nautilus-cd-burner
 Group:		Libraries
 
 %description libs
 nautilus-cd-burner library.
 
-%description libs -l pl
+%description libs -l pl.UTF-8
 Biblioteka nautilus-cd-burner.
 
 %package devel
 Summary:	Nautilus-cd-burner include files
-Summary(pl):	Pliki nag≥Ûwkowe Nautilus-cd-burner
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe Nautilus-cd-burner
 Group:		Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	gtk+2-devel >= 2:2.10.9
@@ -60,19 +60,19 @@ Requires:	gtk+2-devel >= 2:2.10.9
 %description devel
 Nautilus-cd-burner headers files.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe Nautilus-cd-burner.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe Nautilus-cd-burner.
 
 %package static
 Summary:	Static nautilus-cd-burner library
-Summary(pl):	Statyczna biblioteka nautilus-cd-burner
+Summary(pl.UTF-8):   Statyczna biblioteka nautilus-cd-burner
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static nautilus-cd-burner library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka nautilus-cd-burner.
 
 %prep
