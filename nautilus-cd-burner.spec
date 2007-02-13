@@ -1,5 +1,5 @@
 Summary:	Extension for Nautilus to write CD
-Summary(pl.UTF-8):   Rozszerzenie Nautilusa do zapisu płyt CD
+Summary(pl.UTF-8):	Rozszerzenie Nautilusa do zapisu płyt CD
 Name:		nautilus-cd-burner
 Version:	2.16.3
 Release:	1
@@ -41,7 +41,7 @@ plików na płycie CD.
 
 %package libs
 Summary:	nautilus-cd-burner library
-Summary(pl.UTF-8):   Biblioteka nautilus-cd-burner
+Summary(pl.UTF-8):	Biblioteka nautilus-cd-burner
 Group:		Libraries
 
 %description libs
@@ -52,7 +52,7 @@ Biblioteka nautilus-cd-burner.
 
 %package devel
 Summary:	Nautilus-cd-burner include files
-Summary(pl.UTF-8):   Pliki nagłówkowe Nautilus-cd-burner
+Summary(pl.UTF-8):	Pliki nagłówkowe Nautilus-cd-burner
 Group:		Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	gtk+2-devel >= 2:2.10.9
@@ -65,7 +65,7 @@ Pliki nagłówkowe Nautilus-cd-burner.
 
 %package static
 Summary:	Static nautilus-cd-burner library
-Summary(pl.UTF-8):   Statyczna biblioteka nautilus-cd-burner
+Summary(pl.UTF-8):	Statyczna biblioteka nautilus-cd-burner
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
