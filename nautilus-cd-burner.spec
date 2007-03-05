@@ -1,30 +1,31 @@
 Summary:	Extension for Nautilus to write CD
 Summary(pl.UTF-8):	Rozszerzenie Nautilusa do zapisu płyt CD
 Name:		nautilus-cd-burner
-Version:	2.16.3
+Version:	2.17.8
 Release:	1
 License:	LGPL v2+/GPL v2+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/nautilus-cd-burner/2.16/%{name}-%{version}.tar.bz2
-# Source0-md5:	6e3653c849e24aacd7e29b4030327b4e
+Source0:	http://ftp.gnome.org/pub/gnome/sources/nautilus-cd-burner/2.17/%{name}-%{version}.tar.bz2
+# Source0-md5:	1a1417aa2b2399c7956b4edcee6ba73e
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
-Buildrequires:	GConf2-devel >= 2.16.0
+Buildrequires:	GConf2-devel >= 2.18.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	eel-devel >= 2.16.3
+BuildRequires:	eel-devel >= 2.17.90
 BuildRequires:	gnome-mount-devel >= 0.4
-BuildRequires:	gnome-vfs2-devel >= 2.16.3
+BuildRequires:	gnome-vfs2-devel >= 2.17.91
+BuildRequires:	gtk+2-devel >= 2:2.10.9
 BuildRequires:	hal-devel >= 0.5.7.1
-BuildRequires:	intltool >= 0.35.4
+BuildRequires:	intltool >= 0.35.5
 BuildRequires:	libglade2-devel >= 1:2.6.0
-BuildRequires:	libgnomeui-devel >= 2.16.1
-BuildRequires:	nautilus-devel >= 2.16.3
+BuildRequires:	libgnomeui-devel >= 2.17.92
+BuildRequires:	nautilus-devel >= 2.17.92
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
-Requires(post,preun):	GConf2 >= 2.16.0
+Requires(post,preun):	GConf2
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	cdrecord
 Requires:	hal-libs >= 0.5.7.1
@@ -56,6 +57,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe Nautilus-cd-burner
 Group:		Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	gtk+2-devel >= 2:2.10.9
+Requires:	hal-devel >= 0.5.7.1
 
 %description devel
 Nautilus-cd-burner headers files.
@@ -81,6 +83,11 @@ Statyczna biblioteka nautilus-cd-burner.
 
 %build
 cp -f /usr/share/automake/config.sub .
+%{__glib_gettextize}
+%{__intltoolize}
+%{__libtoolize}
+%{__aclocal}
+%{__automake}
 %{__autoconf}
 %configure \
 	--enable-gnome-mount \
