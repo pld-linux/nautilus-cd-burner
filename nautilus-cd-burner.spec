@@ -23,6 +23,7 @@ BuildRequires:	libgnomeui-devel >= 2.17.92
 BuildRequires:	nautilus-devel >= 2.17.92
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
+Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,preun):	GConf2
@@ -112,12 +113,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %gconf_schema_install nautilus-cd-burner.schemas
+%update_desktop_database_post
 %update_icon_cache hicolor
 
 %preun
 %gconf_schema_uninstall nautilus-cd-burner.schemas
 
 %postun
+%update_desktop_database_postun
 %update_icon_cache hicolor
 
 %post	libs -p /sbin/ldconfig
