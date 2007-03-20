@@ -5,7 +5,7 @@
  StartupNotify=true
  Type=Application
 -Categories=GNOME;Core;
-+Categories=GTK;GNOME;;AudioVideo;DiscBurning;
++Categories=GTK;GNOME;AudioVideo;DiscBurning;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=nautilus-cd-burner
