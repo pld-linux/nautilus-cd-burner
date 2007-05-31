@@ -1,26 +1,26 @@
 Summary:	Extension for Nautilus to write CD
 Summary(pl.UTF-8):	Rozszerzenie Nautilusa do zapisu płyt CD
 Name:		nautilus-cd-burner
-Version:	2.18.1
+Version:	2.18.2
 Release:	1
 License:	LGPL v2+/GPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/nautilus-cd-burner/2.18/%{name}-%{version}.tar.bz2
-# Source0-md5:	a6b9187239551a26df7028a0b301496a
+# Source0-md5:	fee9ec2f398a6b1eacfd59e239d06837
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
 Buildrequires:	GConf2-devel >= 2.18.0.1
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	eel-devel >= 2.18.0.1
-BuildRequires:	gnome-mount-devel >= 0.4
-BuildRequires:	gnome-vfs2-devel >= 2.18.0.1
+BuildRequires:	gnome-mount-devel >= 0.5
+BuildRequires:	gnome-vfs2-devel >= 2.18.1
 BuildRequires:	gtk+2-devel >= 2:2.10.10
-BuildRequires:	hal-devel >= 0.5.7.1
+BuildRequires:	hal-devel >= 0.5.9
 BuildRequires:	intltool >= 0.35.5
 BuildRequires:	libglade2-devel >= 1:2.6.0
 BuildRequires:	libgnomeui-devel >= 2.18.1
-BuildRequires:	nautilus-devel >= 2.18.0.1
+BuildRequires:	nautilus-devel >= 2.18.1
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 Requires(post,postun):	desktop-file-utils
@@ -29,7 +29,7 @@ Requires(post,postun):	hicolor-icon-theme
 Requires(post,preun):	GConf2
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	cdrecord
-Requires:	hal-libs >= 0.5.7.1
+Requires:	hal-libs >= 0.5.9
 Requires:	mkisofs
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -58,7 +58,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe Nautilus-cd-burner
 Group:		Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	gtk+2-devel >= 2:2.10.10
-Requires:	hal-devel >= 0.5.7.1
+Requires:	hal-devel >= 0.5.9
 
 %description devel
 Nautilus-cd-burner headers files.
