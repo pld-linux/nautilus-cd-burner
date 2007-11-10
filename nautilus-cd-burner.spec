@@ -2,25 +2,25 @@ Summary:	Extension for Nautilus to write CD
 Summary(pl.UTF-8):	Rozszerzenie Nautilusa do zapisu płyt CD
 Name:		nautilus-cd-burner
 Version:	2.20.0
-Release:	1
+Release:	2
 License:	LGPL v2+/GPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/nautilus-cd-burner/2.20/%{name}-%{version}.tar.bz2
 # Source0-md5:	a7ddb02c33be107f6c9c1874b7703e9e
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
-Buildrequires:	GConf2-devel >= 2.19.1
+Buildrequires:	GConf2-devel >= 2.20.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	eel-devel >= 2.19.90
+BuildRequires:	eel-devel >= 2.20.0
 BuildRequires:	gnome-mount-devel >= 0.6
 BuildRequires:	gnome-vfs2-devel >= 2.20.0
 BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	hal-devel >= 0.5.9
 BuildRequires:	intltool >= 0.36.1
 BuildRequires:	libglade2-devel >= 1:2.6.2
-BuildRequires:	libgnomeui-devel >= 2.19.1
-BuildRequires:	nautilus-devel >= 2.19.91
+BuildRequires:	libgnomeui-devel >= 2.20.0
+BuildRequires:	nautilus-devel >= 2.20.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 Requires(post,postun):	desktop-file-utils
@@ -31,6 +31,8 @@ Requires:	%{name}-libs = %{version}-%{release}
 Requires:	cdrecord
 Requires:	hal-libs >= 0.5.9
 Requires:	mkisofs
+# sr@Latn vs. sr@latin
+Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -57,7 +59,7 @@ Summary:	Nautilus-cd-burner include files
 Summary(pl.UTF-8):	Pliki nagłówkowe Nautilus-cd-burner
 Group:		Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
-Requires:	gtk+2-devel >= 2:2.10.14
+Requires:	gtk+2-devel >= 2:2.12.0
 Requires:	hal-devel >= 0.5.9
 
 %description devel
@@ -81,6 +83,9 @@ Statyczna biblioteka nautilus-cd-burner.
 %prep
 %setup -q
 %patch0 -p1
+
+sed -i -e s#sr\@Latn#sr\@latin# po/LINGUAS
+mv -f po/sr\@{Latn,latin}.po
 
 %build
 cp -f /usr/share/automake/config.sub .
