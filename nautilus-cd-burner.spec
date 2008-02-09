@@ -1,28 +1,28 @@
 Summary:	Extension for Nautilus to write CD
 Summary(pl.UTF-8):	Rozszerzenie Nautilusa do zapisu płyt CD
 Name:		nautilus-cd-burner
-Version:	2.21.5
+Version:	2.21.6
 Release:	1
 License:	LGPL v2+/GPL v2+
-Group:		Libraries
+Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/nautilus-cd-burner/2.21/%{name}-%{version}.tar.bz2
-# Source0-md5:	27372c6d832b4ff94046d809994e8d11
+# Source0-md5:	3a9e4872db1b69f32635f10c5a043854
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
-Buildrequires:	GConf2-devel >= 2.21.0
+Buildrequires:	GConf2-devel >= 2.21.90
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.74
-BuildRequires:	eel-devel >= 2.21.5
+BuildRequires:	eel-devel >= 2.21.90
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 1:2.15.2
+BuildRequires:	glib2-devel >= 1:2.15.4
 BuildRequires:	gnome-mount-devel >= 0.6
-BuildRequires:	gtk+2-devel >= 2:2.12.0
+BuildRequires:	gtk+2-devel >= 2:2.12.5
 BuildRequires:	hal-devel >= 0.5.10
 BuildRequires:	intltool >= 0.36.1
 BuildRequires:	libglade2-devel >= 1:2.6.2
-BuildRequires:	libgnomeui-devel >= 2.21.5
-BuildRequires:	nautilus-devel >= 2.21.5
+BuildRequires:	libgnomeui-devel >= 2.21.90
+BuildRequires:	nautilus-devel >= 2.21.90
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 Requires(post,postun):	desktop-file-utils
@@ -48,8 +48,8 @@ plików na płycie CD.
 %package libs
 Summary:	nautilus-cd-burner library
 Summary(pl.UTF-8):	Biblioteka nautilus-cd-burner
-Group:		Libraries
-Requires:	glib2 >= 1:2.15.2
+Group:		X11/Libraries
+Requires:	glib2 >= 1:2.15.4
 
 %description libs
 nautilus-cd-burner library.
@@ -60,10 +60,10 @@ Biblioteka nautilus-cd-burner.
 %package devel
 Summary:	Nautilus-cd-burner include files
 Summary(pl.UTF-8):	Pliki nagłówkowe Nautilus-cd-burner
-Group:		Development/Libraries
+Group:		X11/Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
-Requires:	glib2-devel >= 1:2.15.2
-Requires:	gtk+2-devel >= 2:2.12.0
+Requires:	glib2-devel >= 1:2.15.4
+Requires:	gtk+2-devel >= 2:2.12.5
 Requires:	hal-devel >= 0.5.10
 
 %description devel
@@ -75,7 +75,7 @@ Pliki nagłówkowe Nautilus-cd-burner.
 %package static
 Summary:	Static nautilus-cd-burner library
 Summary(pl.UTF-8):	Statyczna biblioteka nautilus-cd-burner
-Group:		Development/Libraries
+Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
@@ -112,8 +112,6 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 
-# not used
-rm -rf $RPM_BUILD_ROOT%{_sysconfdir}/gnome-vfs-2.0
 rm -f $RPM_BUILD_ROOT%{_libdir}/nautilus/extensions-2.0/*.{la,a}
 
 %find_lang %{name}
