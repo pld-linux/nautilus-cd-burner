@@ -1,28 +1,28 @@
 Summary:	Extension for Nautilus to write CD
 Summary(pl.UTF-8):	Rozszerzenie Nautilusa do zapisu płyt CD
 Name:		nautilus-cd-burner
-Version:	2.21.6
+Version:	2.22.0
 Release:	1
 License:	LGPL v2+/GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/nautilus-cd-burner/2.21/%{name}-%{version}.tar.bz2
-# Source0-md5:	3a9e4872db1b69f32635f10c5a043854
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/nautilus-cd-burner/2.22/%{name}-%{version}.tar.bz2
+# Source0-md5:	e75c61879a12ab329fd2f3081b7e5d76
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
-Buildrequires:	GConf2-devel >= 2.21.90
+Buildrequires:	GConf2-devel >= 2.22.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.74
-BuildRequires:	eel-devel >= 2.21.90
+BuildRequires:	eel-devel >= 2.22.0
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 1:2.15.4
+BuildRequires:	glib2-devel >= 1:2.16.0
 BuildRequires:	gnome-mount-devel >= 0.6
 BuildRequires:	gtk+2-devel >= 2:2.12.5
 BuildRequires:	hal-devel >= 0.5.10
 BuildRequires:	intltool >= 0.36.1
 BuildRequires:	libglade2-devel >= 1:2.6.2
-BuildRequires:	libgnomeui-devel >= 2.21.90
-BuildRequires:	nautilus-devel >= 2.21.90
+BuildRequires:	libgnomeui-devel >= 2.22.0
+BuildRequires:	nautilus-devel >= 2.22.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 Requires(post,postun):	desktop-file-utils
