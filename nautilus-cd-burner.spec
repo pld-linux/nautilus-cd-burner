@@ -2,7 +2,7 @@ Summary:	Extension for Nautilus to write CD
 Summary(pl.UTF-8):	Rozszerzenie Nautilusa do zapisu płyt CD
 Name:		nautilus-cd-burner
 Version:	2.24.0
-Release:	1
+Release:	2
 License:	LGPL v2+/GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/nautilus-cd-burner/2.24/%{name}-%{version}.tar.bz2
