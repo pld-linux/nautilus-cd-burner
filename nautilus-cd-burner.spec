@@ -9,7 +9,7 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/nautilus-cd-burner/2.24/%{name}-
 # Source0-md5:	eb211dd03d0518263fa4eadccc3caa88
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
-Buildrequires:	GConf2-devel >= 2.24.0
+BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.74
@@ -22,6 +22,7 @@ BuildRequires:	hal-devel >= 0.5.10
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
 BuildRequires:	libgnomeui-devel >= 2.24.0
+BuildRequires:	libtool
 BuildRequires:	nautilus-devel >= 2.24.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
